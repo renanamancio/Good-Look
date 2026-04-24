@@ -1,7 +1,7 @@
-package com.relook.entity;
+package com.ecommerce.entity;
 
 public enum Role {
-        COMPRADOR,
+        USER,
         ADMIN,
         ADMIN_MASTER
 }

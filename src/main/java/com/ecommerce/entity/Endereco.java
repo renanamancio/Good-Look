@@ -1,11 +1,19 @@
-package com.relook.entity;
+package com.ecommerce.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "enderecos")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -13,6 +21,9 @@ public class Endereco {
 
     @Column(nullable = false)
     private String logradouro;
+
+    private String quadra;
+    private String lote;
 
     @Column(nullable = false)
     private String numero;
@@ -32,6 +43,6 @@ public class Endereco {
     private String cep;
 
     @OneToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
+    @JoinColumn(name = "cliente_id", nullable = false, unique = true)
     private Cliente cliente;
 }
