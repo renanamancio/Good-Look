@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Peça | Test Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body class="client-body">
+
+<header class="client-header reveal">
+    <div class="brand">
+        <span class="brand-text">Test Shop</span>
+    </div>
+    <nav class="client-nav">
+        <a href="../home.html">Acervo</a>
+        <a href="../lista-desejos.html">Lista de Desejos</a>
+        <a href="../carrinho.html">Carrinho (0)</a>
+    </nav>
+    <div class="header-actions">
+        <a href="../../index.html" class="btn-outline btn-small">Logout</a>
+    </div>
+</header>
+
+<main class="client-main">
+
+    <div class="back-navigation reveal">
+        <a href="../home.html" class="link-accent">← Voltar ao Acervo</a>
+    </div>
+
+    <section class="product-details-grid">
+
+        <div class="product-gallery reveal">
+            <div class="main-image-placeholder">
+                <span class="placeholder-text">Fotografia Editorial da Peça</span>
+                <span class="badge-exclusive" style="position: absolute; top: 2rem; right: 2rem;">Exclusivo</span>
+            </div>
+        </div>
+
+        <div class="product-info-panel reveal" style="transition-delay: 0.1s;">
+
+            <div class="product-header">
+                <h1 class="product-detail-title">Relógio Chrono Skeleton 18k</h1>
+                <span class="product-detail-price">R$ 18.900,00</span>
+            </div>
+
+            <div class="product-description">
+                <p>Uma obra-prima da alta relojoaria. Este modelo apresenta um mostrador esqueletizado que revela a complexidade do movimento mecânico, emoldurado num estojo de ouro maciço de 18 quilates. Criado para transcender o tempo e as tendências.</p>
+            </div>
+
+            <div class="product-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Disponibilidade</span>
+                    <span class="meta-value">2 unidades em stock</span>
+                </div>
+                <div class="meta-item">
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <div class="quantity-selector">
+                    <button class="qty-btn" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+                    <input type="number" value="1" min="1" max="2" readonly>
+                    <button class="qty-btn" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+                </div>
+
+                <button class="btn-primary full-width">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="secondary-actions">
+                <button class="btn-wishlist">✦ Adicionar à Lista de Desejos</button>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<script src="../../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Test Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="client-body">
+
+<header class="client-header reveal">
+    <div class="brand">
+        <span class="brand-text">Test Shop</span>
+    </div>
+    <nav class="client-nav">
+        <a href="home.html">Acervo</a>
+        <a href="lista-desejos.html">Lista de Desejos</a>
+        <a href="/cliente/carrinho.html" class="active">Carrinho (2)</a>
+    </nav>
+    <div class="header-actions">
+        <a href="../index.html" class="btn-outline btn-small">Logout</a>
+    </div>
+</header>
+
+<main class="client-main">
+
+    <section class="welcome-section reveal" style="text-align: left; margin-bottom: 3rem;">
+        <h1 class="hero-title">Sua Sacola</h1>
+        <p class="subtitle">Revise suas escolhas antes de finalizar a curadoria.</p>
+    </section>
+
+    <section class="cart-layout reveal" style="transition-delay: 0.1s;">
+
+        <div class="cart-items-list" id="cartItemsContainer">
+
+            <div class="cart-item" id="cart-item-1">
+                <div class="cart-item-image">
+                </div>
+                <div class="cart-item-details">
+                    <div class="cart-item-header">
+                        <div>
+                            <h3 class="cart-item-title">Relógio Chrono Skeleton 18k</h3>
+                            <p class="cart-item-meta"></p>
+                        </div>
+                        <span class="cart-item-price">R$ 18.900,00</span>
+                    </div>
+
+                    <div class="cart-item-actions">
+                        <div class="quantity-selector" style="height: 40px;">
+                            <button class="qty-btn" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+                            <input type="number" value="1" min="1" max="2" readonly>
+                            <button class="qty-btn" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+                        </div>
+                        <button class="btn-remove-text" onclick="removerItemCarrinho('cart-item-1')">Remover</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-item" id="cart-item-2">
+                <div class="cart-item-image" style="background-color: #111;">
+                </div>
+                <div class="cart-item-details">
+                    <div class="cart-item-header">
+                        <div>
+                            <h3 class="cart-item-title">Colar Diamante Negro</h3>
+                            <p class="cart-item-meta">Ref: AA-CDN-01</p>
+                        </div>
+                        <span class="cart-item-price">R$ 45.000,00</span>
+                    </div>
+
+                    <div class="cart-item-actions">
+                        <div class="quantity-selector" style="height: 40px;">
+                            <button class="qty-btn" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+                            <input type="number" value="1" min="1" max="1" readonly>
+                            <button class="qty-btn" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+                        </div>
+                        <button class="btn-remove-text" onclick="removerItemCarrinho('cart-item-2')">Remover</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="emptyCartMessage" class="empty-message-zone" style="display: none; border: none; padding: 4rem 0;">
+                <p class="empty-text">Sua sacola está vazia.</p>
+                <a href="home.html" class="btn-outline" style="margin-top: 1.5rem;">Continuar Explorando</a>
+            </div>
+
+        </div>
+
+        <div class="order-summary-wrapper" id="orderSummaryWrapper">
+            <div class="order-summary-card">
+                <h2 class="summary-title">Resumo do Pedido</h2>
+
+                <div class="summary-content">
+                    <div class="summary-row">
+                        <span class="summary-label">Subtotal</span>
+                        <span class="summary-value">R$ 63.900,00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Envio Premium</span>
+                        <span class="summary-value" style="color: var(--color-accent);">Cortesia</span>
+                    </div>
+
+                    <hr class="divider" style="margin: 1.5rem 0;">
+
+                    <div class="summary-row total-row">
+                        <span class="summary-label">Total estimado</span>
+                        <span class="summary-total-value">R$ 63.900,00</span>
+                    </div>
+                </div>
+
+                <button class="btn-primary" style="width: 100%; margin-top: 2.5rem;">Finalizar Compra</button>
+
+                <div class="secure-checkout">
+                    <span class="secure-icon">🔒</span>
+                    <span>Transação Segura e Criptografada</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="../assets/js/script.js"></script>
+</body>
+</html>

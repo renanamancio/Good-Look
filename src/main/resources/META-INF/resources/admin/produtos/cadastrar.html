@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Produto | Test Shop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body class="admin-body">
+
+<header class="admin-header reveal">
+  <div class="brand">
+    <span class="brand-text">Painel de Curadoria</span>
+  </div>
+  <nav class="admin-nav">
+    <a href="../home.html">Home</a>
+    <a href="../usuarios/listar.html">Usuários</a>
+    <a href="listar.html" class="active">Produtos</a>
+    <a href="../relatorios.html">Relatórios</a>
+  </nav>
+  <div class="header-actions">
+    <a href="../../index.html" class="btn-outline btn-small">Logout</a>
+  </div>
+</header>
+
+<main class="admin-main">
+
+  <div class="admin-form-wrapper reveal">
+    <header class="login-header" style="margin-bottom: 2.5rem;">
+      <h1 class="hero-title">Nova Peça</h1>
+      <p class="subtitle">Adicione um novo item exclusivo, obra de arte ou produto ao catálogo.</p>
+    </header>
+
+    <form class="login-form" id="adminRegisterProductForm">
+
+      <div class="input-group">
+        <label>Fotografia Editorial</label>
+        <div class="luxury-upload-zone" id="uploadZone">
+          <input type="file" id="imagem" name="imagem" accept="image/*" hidden>
+          <span class="upload-icon">✦</span>
+          <p class="upload-text">Arraste a imagem de alta resolução ou <span class="browse-link">procure</span></p>
+          <p class="upload-limitation">Formatos aceitos: PNG, JPG (Mínimo 1440px)</p>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="nome">Nome da Peça</label>
+        <input type="text" id="nome" name="nome" required placeholder="Ex: Relógio Chrono Skeleton Ouro 18k">
+      </div>
+
+      <div class="input-group">
+        <label for="url">URL Única (Slug)</label>
+        <input type="text" id="url" name="url" required placeholder="Ex: relogio-chrono-skeleton-ouro-18k">
+      </div>
+
+      <div class="input-group">
+        <label for="descricao">Descrição / História da Peça</label>
+        <textarea id="descricao" name="descricao" rows="4" required placeholder="Narração poética e detalhada sobre a origem, materiais, raridade e artesanato envolvidos no desenvolvimento deste item..."></textarea>
+      </div>
+
+      <div class="address-grid">
+        <div class="input-group">
+          <label for="preco">Preço (R$)</label>
+          <input type="text" id="preco" name="preco" class="price-input" required placeholder="0,00">
+        </div>
+        <div class="input-group">
+          <label for="quantidade">Unidades Disponíveis</label>
+          <input type="number" id="quantidade" name="quantidade" required min="1" placeholder="Ex: 5">
+        </div>
+      </div>
+
+      <div class="form-actions" style="margin-top: 2rem;">
+        <button type="submit" class="btn-primary">Publicar Peça</button>
+        <a href="../home.html" class="btn-outline">Cancelar</a>
+      </div>
+    </form>
+  </div>
+
+</main>
+
+<script src="../../assets/js/script.js"></script>
+</body>
+</html>

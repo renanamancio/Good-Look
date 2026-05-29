@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Usuários | Test Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../..../../assets/css/main.css">
+</head>
+<body class="admin-body">
+
+<header class="admin-header reveal">
+    <div class="brand">
+        <span class="brand-text">Painel de Curadoria</span>
+    </div>
+    <nav class="admin-nav">
+        <a href="../home.html">Home</a>
+        <a href="../usuarios/listar.html" class="active">Usuários</a>
+        <a href="../produtos/listar.html">Produtos</a>
+        <a href="../relatorios.html">Relatórios</a>
+    </nav>
+    <div class="header-actions">
+        <a href="../../index.html" class="btn-outline btn-small">Logout</a>
+    </div>
+</header>
+
+<main class="admin-main">
+
+    <section class="welcome-section reveal" style="text-align: left; margin-bottom: 3rem;">
+        <h1 class="hero-title">Usuários Cadastrados</h1>
+        <p class="subtitle">Gerenciamento de acessos, perfis e informações de clientes da plataforma.</p>
+    </section>
+
+    <div class="admin-table-wrapper reveal">
+        <table class="luxury-table">
+            <thead>
+            <tr>
+                <th>Nome Completo</th>
+                <th>E-mail</th>
+                <th>Perfil</th>
+                <th>Localização</th>
+                <th style="text-align: right;">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <div class="user-profile-cell">
+                        <span class="user-name">Renan Henrique Batista Amancio</span>
+                    </div>
+                </td>
+                <td class="user-email">renan.amancio@exemplo.com</td>
+                <td>
+                    <span class="badge-luxury badge-admin">Administrador</span>
+                </td>
+                <td class="user-location">—</td>
+                <td class="table-actions">
+                    <a href="#editar" class="action-link">Editar</a>
+                    <a href="#excluir" class="action-link delete">Excluir</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="user-profile-cell">
+                        <span class="user-name">Carlos Henrique Silva</span>
+                    </div>
+                </td>
+                <td class="user-email">carlos.silva@exemplo.com</td>
+                <td>
+                    <span class="badge-luxury badge-client">Cliente</span>
+                </td>
+                <td class="user-location">Luziânia / GO</td>
+                <td class="table-actions">
+                    <a href="#editar" class="action-link">Editar</a>
+                    <a href="#excluir" class="action-link delete">Excluir</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="user-profile-cell">
+                        <span class="user-name">Ana Júlia Medeiros</span>
+                    </div>
+                </td>
+                <td class="user-email">ana.medeiros@exemplo.com</td>
+                <td>
+                    <span class="badge-luxury badge-client">Cliente</span>
+                </td>
+                <td class="user-location">Brasília / DF</td>
+                <td class="table-actions">
+                    <a href="#editar" class="action-link">Editar</a>
+                    <a href="#excluir" class="action-link delete">Excluir</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<script src="../..../../assets/js/script.js"></script>
+</body>
+</html>

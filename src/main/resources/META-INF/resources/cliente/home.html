@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acervo | Test Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="client-body">
+
+<header class="client-header reveal">
+    <div class="brand">
+        <span class="brand-text">Test Shop</span>
+    </div>
+    <nav class="client-nav">
+        <a href="home.html" class="active">Eletrônicos</a>
+        <a href="lista-desejos.html">Desejos</a>
+        <a href="carrinho.html">Carrinho (0)</a>
+    </nav>
+    <div class="header-actions">
+        <a href="javascript:void(0)" onclick="logout()" class="btn-outline btn-small">Logout</a>
+    </div>
+</header>
+
+<main class="client-main">
+
+    <section class="storefront-hero reveal">
+        <h1 class="hero-title">Tecnologia de Ponta</h1>
+        <p class="subtitle">Os melhores gadgets e eletrônicos para o seu dia a dia.</p>
+
+        <div class="luxury-search-container">
+            <input type="text" class="luxury-search-input" placeholder="Pesquisar por peça, designer ou coleção...">
+            <button class="luxury-search-btn">✦</button>
+        </div>
+    </section>
+
+    <section class="product-showcase">
+        <div class="storefront-grid">
+
+            <a href="produto/detalhes.html" class="luxury-card-none">
+                <article class="luxury-product-card reveal">
+                    <div class="card-image-zone">
+                        <span class="badge-exclusive">Exclusivo</span>
+                    </div>
+                    <div class="card-details">
+                        <h2 class="card-title">Relógio Chrono Skeleton 18k</h2>
+                        <span class="card-price">R$ 18.900,00</span>
+                        <button class="btn-primary btn-add-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+            </a>
+
+        </div>
+    </section>
+
+</main>
+
+<script src="../assets/js/script.js"></script>
+</body>
+</html>

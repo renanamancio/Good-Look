@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listar Produtos | Test Shop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body class="admin-body">
+
+<header class="admin-header reveal">
+  <div class="brand">
+    <span class="brand-text">Painel de Curadoria</span>
+  </div>
+  <nav class="admin-nav">
+    <a href="../home.html">Home</a>
+    <a href="../usuarios/listar.html">Usuários</a>
+    <a href="/admin/produtos/listar.html" class="active">Produtos</a>
+    <a href="../relatorios.html">Relatórios</a>
+  </nav>
+  <div class="header-actions">
+    <a href="../../index.html" class="btn-outline btn-small">Logout</a>
+  </div>
+</header>
+
+<main class="admin-main">
+
+  <section class="welcome-section reveal" style="text-align: left; margin-bottom: 3rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <div>
+        <h1 class="hero-title">Acervo de Peças</h1>
+        <p class="subtitle">Gestão de inventário, curadoria e visibilidade do catálogo.</p>
+      </div>
+      <a href="cadastrar.html" class="btn-primary" style="padding: 12px 32px; font-size: 0.875rem;">Nova Peça</a>
+    </div>
+  </section>
+
+  <div class="admin-table-wrapper reveal">
+    <table class="luxury-table">
+      <thead>
+      <tr>
+        <th>Produto</th>
+        <th>URL (Slug)</th>
+        <th>Valor (R$)</th>
+        <th>Estoque</th>
+        <th style="text-align: right;">Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <div class="product-profile-cell">
+            <div class="product-thumb"></div>
+            <div class="product-info">
+              <span class="product-name">Relógio Chrono Skeleton 18k</span>
+            </div>
+          </div>
+        </td>
+        <td class="product-category">relogio-chrono-skeleton-18k</td>
+        <td class="product-price">18.900,00</td>
+        <td class="product-stock">2 unid.</td>
+        <td class="table-actions">
+          <a href="#editar" class="action-link">Editar</a>
+          <a href="#excluir" class="action-link delete">Excluir</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="product-profile-cell">
+            <div class="product-thumb" style="background-color: #1A1A1A;"></div>
+            <div class="product-info">
+              <span class="product-name">Colar Diamante Negro</span>
+            </div>
+          </div>
+        </td>
+        <td class="product-category">colar-diamante-negro</td>
+        <td class="product-price">45.000,00</td>
+        <td class="product-stock">1 unid.</td>
+        <td class="table-actions">
+          <a href="#editar" class="action-link">Editar</a>
+          <a href="#excluir" class="action-link delete">Excluir</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="product-profile-cell">
+            <div class="product-thumb" style="background-color: #2A2A2A;"></div>
+            <div class="product-info">
+              <span class="product-name">Bolsa Couro Noir</span>
+            </div>
+          </div>
+        </td>
+        <td class="product-category">bolsa-couro-noir</td>
+        <td class="product-price">8.500,00</td>
+        <td class="product-stock">15 unid.</td>
+        <td class="table-actions">
+          <a href="#editar" class="action-link">Editar</a>
+          <a href="#excluir" class="action-link delete">Excluir</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<script src="../../assets/js/script.js"></script>
+</body>
+</html>

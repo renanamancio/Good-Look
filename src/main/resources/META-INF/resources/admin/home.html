@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin | Test Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="admin-body">
+
+<header class="admin-header reveal">
+    <div class="brand">
+        <span class="brand-text">Painel de Curadoria</span>
+    </div>
+    <nav class="admin-nav">
+        <a href="/admin/home.html" class="active">Home</a>
+        <a href="usuarios/listar.html">Usuários</a>
+        <a href="produtos/listar.html">Produtos</a>
+        <a href="relatorios.html">Relatórios</a>
+    </nav>
+    <div class="header-actions">
+        <a href="../index.html" class="btn-outline btn-small">Logout</a>
+    </div>
+</header>
+
+<main class="admin-main">
+    <section class="welcome-section reveal">
+        <h1 class="hero-title">Bem-vindo, Renan.</h1>
+        <p class="subtitle">Este é o seu ambiente de administração e curadoria do e-commerce.</p>
+    </section>
+
+    <section class="dashboard-grid">
+
+        <div class="dashboard-card reveal">
+            <h2 class="card-title">Cadastrar Usuários</h2>
+            <p class="card-desc">Adicione novos membros, clientes ou administradores ao sistema.</p>
+            <a href="usuarios/cadastrar.html" class="btn-outline">Cadastrar</a>
+        </div>
+
+        <div class="dashboard-card reveal" style="transition-delay: 0.1s;">
+            <h2 class="card-title">Listar Usuários</h2>
+            <p class="card-desc">Visualize, edite ou remova acessos da base de clientes.</p>
+            <a href="usuarios/listar.html" class="btn-outline">Listar</a>
+        </div>
+
+        <div class="dashboard-card reveal" style="transition-delay: 0.2s;">
+            <h2 class="card-title">Cadastrar Produtos</h2>
+            <p class="card-desc">Insira novas peças exclusivas e itens de colecionador ao catálogo.</p>
+            <a href="produtos/cadastrar.html" class="btn-outline">Cadastrar</a>
+        </div>
+
+        <div class="dashboard-card reveal" style="transition-delay: 0.3s;">
+            <h2 class="card-title">Listar Produtos</h2>
+            <p class="card-desc">Gerencie o inventário, ajuste preços e status de disponibilidade.</p>
+            <a href="produtos/listar.html" class="btn-outline">Listar</a>
+        </div>
+
+        <div class="dashboard-card reveal" style="transition-delay: 0.4s;">
+            <h2 class="card-title">Relatórios</h2>
+            <p class="card-desc">Acompanhe métricas de conversão e faturamento da marca.</p>
+            <a href="relatorios.html" class="btn-outline">Ver Dados</a>
+        </div>
+
+    </section>
+</main>
+
+<script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: -0.3px;
+    color: var(--color-text);
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+}
+
+.section-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: -1rem;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 1rem 0;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--transition-slow);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+a {
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
