@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios de Performance | Test Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="admin-body">
+
+<header class="admin-header reveal">
+    <div class="brand">
+        <span class="brand-text">Painel de Curadoria</span>
+    </div>
+    <nav class="admin-nav">
+        <a href="home.html">Home</a>
+        <a href="usuarios/listar.html">Usuários</a>
+        <a href="produtos/listar.html">Produtos</a>
+        <a href="/admin/relatorios.html" class="active">Relatórios</a>
+    </nav>
+    <div class="header-actions">
+        <a href="../index.html" class="btn-outline btn-small">Logout</a>
+    </div>
+</header>
+
+<main class="admin-main">
+
+    <section class="welcome-section reveal" style="text-align: left; margin-bottom: 4rem;">
+        <h1 class="hero-title">Visão Geral de Performance</h1>
+        <p class="subtitle">Acompanhe os principais indicadores de faturamento, engajamento e conversão da marca.</p>
+    </section>
+
+    <section class="metrics-grid">
+
+        <div class="metric-card reveal">
+            <span class="metric-label">Faturamento Mensal</span>
+            <span class="metric-value">R$ 142.500,00</span>
+            <span class="metric-subtext positive">✦ 12% em relação ao mês anterior</span>
+        </div>
+
+        <div class="metric-card reveal" style="transition-delay: 0.1s;">
+            <span class="metric-label">Ticket Médio</span>
+            <span class="metric-value">R$ 11.875,00</span>
+            <span class="metric-subtext">Baseado em peças exclusivas</span>
+        </div>
+
+        <div class="metric-card reveal" style="transition-delay: 0.2s;">
+            <span class="metric-label">Taxa de Conversão</span>
+            <span class="metric-value">2.4%</span>
+            <span class="metric-subtext positive">✦ Alto índice para o mercado Premium</span>
+        </div>
+
+    </section>
+
+    <section class="report-details-section reveal" style="margin-top: 4rem;">
+        <div class="report-card">
+            <h2 class="report-section-title">Performance por Coleção</h2>
+            <p class="report-section-subtitle" style="margin-bottom: 2.5rem;">Participação de faturamento por categoria no catálogo atual.</p>
+
+            <div class="luxury-progress-group">
+                <div class="progress-info">
+                    <span class="progress-name">Alta Joalheria (Test Shop)</span>
+                    <span class="progress-percentage">45%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 45%;"></div>
+                </div>
+            </div>
+
+            <div class="luxury-progress-group">
+                <div class="progress-info">
+                    <span class="progress-name">Peças Únicas (Atelier Amancio)</span>
+                    <span class="progress-percentage">30%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 30%;"></div>
+                </div>
+            </div>
+
+            <div class="luxury-progress-group">
+                <div class="progress-info">
+                    <span class="progress-name">Alta Costura</span>
+                    <span class="progress-percentage">25%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 25%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="../assets/js/script.js"></script>
+</body>
+</html>

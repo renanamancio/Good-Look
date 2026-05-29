@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Test Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<main class="login-container">
+    <section class="login-card reveal">
+        <header class="login-header">
+            <h1 class="hero-title">Nova Conta</h1>
+            <p class="subtitle">Junte-se à nossa curadoria exclusiva.</p>
+        </header>
+
+        <form class="login-form" id="registerForm">
+
+            <div class="role-selector">
+                <input type="radio" id="role-client" name="role" value="CLIENTE" checked hidden>
+                <label for="role-client" class="role-btn">Cliente</label>
+
+                <input type="radio" id="role-admin" name="role" value="ADMIN" hidden>
+                <label for="role-admin" class="role-btn">Administrador</label>
+            </div>
+
+            <div class="input-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="name" required placeholder="Insira seu nome">
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required placeholder="Insira seu e-mail">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required placeholder="Crie uma senha">
+            </div>
+
+            <div id="client-fields" class="client-specific-fields">
+                <hr class="divider">
+
+                <div class="address-grid">
+                    <div class="input-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14">
+                    </div>
+                    <div class="input-group">
+                        <label for="birthdate">Data de Nascimento</label>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" maxlength="15">
+                </div>
+
+                <h3 class="section-subtitle">Endereço</h3>
+
+                <div class="address-grid">
+                    <div class="input-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9">
+                    </div>
+
+                    <div class="input-group span-2">
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" id="logradouro" name="logradouro" placeholder="Rua, Avenida..." readonly>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="Nº">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="complemento">Complemento</label>
+                        <input type="text" id="complemento" name="complemento" placeholder="Apto, Bloco">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="quadra">Quadra</label>
+                        <input type="text" id="quadra" name="quadra" placeholder="Qd.">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="lote">Lote</label>
+                        <input type="text" id="lote" name="lote" placeholder="Lt.">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" readonly>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Cidade" readonly>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="uf">UF</label>
+                        <input type="text" id="uf" name="uf" placeholder="UF" readonly maxlength="2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Criar Conta</button>
+                <a href="../index.html" class="btn-outline">Já possui conta? Entrar</a>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script src="../assets/js/script.js"></script>
+</body>
+</html>

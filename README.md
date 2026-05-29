@@ -1,62 +1,71 @@
-# ecommerce-api
+# 🛒 Good Look — E-commerce API
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+API REST de um e-commerce completo desenvolvido como projeto prático 
+da disciplina de Programação para Web — IFG Campus Luziânia.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+## 🚀 Tecnologias
 
-## Running the application in dev mode
+- **Java 21** — linguagem principal
+- **Quarkus 3** — framework back-end
+- **PostgreSQL 17** — banco de dados
+- **Docker & Docker Compose** — conteinerização
+- **JWT** — autenticação e autorização
+- **Hibernate ORM Panache** — persistência de dados
 
-You can run your application in dev mode that enables live coding using:
+## 🏗️ Padrões de Projeto
 
-```shell script
-./mvnw quarkus:dev
+- **MVC** — separação de responsabilidades
+- **Entity / DAO / BO / DTO** — camadas bem definidas
+- **RBAC** — controle de acesso por perfil (Admin Master, Admin, Cliente)
+- **Conventional Commits** — padronização do histórico Git
+- **GitFlow** — gestão de branches
+
+## 🔒 Segurança
+
+- Autenticação via JWT
+- Autorização por perfil de usuário
+- Proteção contra IDOR
+- Sanitização de inputs (XSS)
+- Log de auditoria de todas as ações
+
+## 📋 Pré-requisitos
+
+- Docker
+- Docker Compose
+
+## ▶️ Como executar
+
+Clone o repositório:
+```bash
+git clone https://github.com/renanamancio/Good-Look.git
+cd Good-Look
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
-
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
-./mvnw package
+Suba o ambiente completo:
+```bash
+docker compose up --build
 ```
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+Acesse:
+- **Site:** http://localhost
+- **API:** http://localhost:8080
+- **Swagger UI:** http://localhost:8080/swagger
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+## 📁 Estrutura do Projeto
 
-If you want to build an _über-jar_, execute the following command:
+src/main/java/com/ecommerce/
+├── entity/     → Modelos de dados
+├── dao/        → Acesso a dados
+├── bo/         → Regras de negócio
+├── dto/        → Transferência de dados
+└── resource/   → Endpoints REST
 
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
+## 📊 Testes
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+- **Unitários** — JUnit 5 + Mockito
+- **Integração** — Quarkus Test + Testcontainers
+- **Sistema** — REST Assured
 
-## Creating a native executable
+## 📜 Licença
 
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/ecommerce-api-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplify your persistence code for Hibernate ORM via the active record or the repository pattern
-- REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
-- SmallRye JWT ([guide](https://quarkus.io/guides/security-jwt)): Secure your applications with JSON Web Token
-- SmallRye OpenAPI ([guide](https://quarkus.io/guides/openapi-swaggerui)): Document your REST APIs with OpenAPI - comes with Swagger UI
-- JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC
+MIT

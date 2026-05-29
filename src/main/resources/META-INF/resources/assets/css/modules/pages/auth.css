@@ -1,0 +1,92 @@
+.login-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.login-card {
+    background-color: var(--color-bg-card);
+    padding: 4rem 3rem;
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.login-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.legal-links {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.link-accent {
+    font-family: var(--font-accent);
+    font-size: 0.625rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.link-accent:hover {
+    color: var(--color-accent);
+}
+
+.role-selector {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.role-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    font-family: var(--font-accent);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+input[type="radio"]:checked + .role-btn {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: rgba(201, 169, 110, 0.05);
+}
+
+.client-specific-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    transition: all var(--transition-medium);
+}
+
+.hidden-fields {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
