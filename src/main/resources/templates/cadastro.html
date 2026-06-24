@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Test Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+<main class="login-container">
+    <section class="login-card reveal">
+        <header class="login-header">
+            <h1 class="hero-title">Nova Conta</h1>
+            <p class="subtitle">Junte-se à nossa curadoria exclusiva.</p>
+        </header>
+
+        <form class="login-form" id="registerForm">
+            <div class="input-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="name" required placeholder="Insira seu nome">
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required placeholder="Insira seu e-mail">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required placeholder="Crie uma senha">
+            </div>
+
+            <div class="input-group checkbox-group" style="display: flex; align-items: center; gap: 10px; margin-top: 1rem; margin-bottom: 1.5rem;">
+                <input type="checkbox" id="isAdmin" name="isAdmin" style="width: 20px; height: 20px; cursor: pointer;">
+                <label for="isAdmin" style="font-weight: 500; cursor: pointer; user-select: none; margin: 0;">Cadastrar como Administrador</label>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Criar Conta</button>
+                <a href="/" class="btn-outline">Já possui conta? Entrar</a>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

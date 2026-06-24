@@ -1,6 +1,8 @@
 package com.ecommerce.model.bo;
 
-import com.ecommerce.model.dao.UserRepository;
+import com.ecommerce.model.dao.UserDAO;
+import com.ecommerce.model.dto.UserResponseDTO;
+import com.ecommerce.model.dto.UserUpdateDTO;
 import com.ecommerce.model.entity.Role;
 import com.ecommerce.model.entity.UserEntity;
 import com.ecommerce.security.exception.BusinessException;
@@ -12,95 +14,109 @@ import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
+/**
+ * Objeto de Negócio (BO) para Usuários.
+ * Contém regras de hierarquia e gestão de contas.
+ */
 @ApplicationScoped
 public class UserBO {
 
     @Inject
-    UserRepository userRepository;
+    UserDAO userDAO;
 
     @Inject
     AuditLogBO auditLogBO;
 
+    /**
+     * Valida se o executor tem permissão para excluir o alvo.
+     */
     public void validarHierarquiaExclusao(Role roleExecutor, Role roleAlvo){
         if (roleExecutor == Role.USER){
             throw new UnauthorizedException("Usuários comuns não têm permissão para excluir outros usuários");
         }
-        if(roleExecutor == Role.ADMIN && roleAlvo == Role.USER){
-            throw new UnauthorizedException("Administradores padrão só podem excluir usuários comuns");
-        }
     }
 
-
+    /**
+     * Valida se o executor tem permissão para editar o alvo.
+     */
     public void validarHierarquiaEdicao(Role roleExecutor, Role roleAlvo){
         if (roleExecutor == Role.USER){
             throw new UnauthorizedException("Usuários comuns não têm permissão para editar outros usuários");
-        }
-        if(roleExecutor == Role.ADMIN && roleAlvo == Role.USER){
-            throw new UnauthorizedException("Administradores padrão só podem editar usuários comuns");
         }
     }
 
     @Transactional
     public UserEntity criar(UserEntity userEntity){
-        if(userRepository.existsByEmail(userEntity.getEmail())){
+        if(userDAO.existsByEmail(userEntity.getEmail())){
             throw new BusinessException("Já existe um usuário cadastrado com este e-mail");
         }
 
         userEntity.setSenha(BcryptUtil.bcryptHash(userEntity.getSenha()));
-
-        userRepository.persist(userEntity);
+        userDAO.salvar(userEntity);
         auditLogBO.registrar("CRIAR_USUARIO", userEntity.getEmail(), "Novo usuário criado", null);
 
         return userEntity;
     }
 
     @Transactional
-    public UserEntity atualizar(UUID id, UserEntity dadosAtualizados, String emailExecutor, Role roleExecutor){
-        UserEntity userEntityExistente = userRepository.findByIdOptional(id)
+    public UserResponseDTO atualizar(UUID id, UserUpdateDTO dto, String emailExecutor, Role roleExecutor){
+        UserEntity entity = userDAO.findById(id)
                 .orElseThrow(() -> new BusinessException("Usuário não encontrado"));
 
-        validarHierarquiaEdicao(roleExecutor, userEntityExistente.getAutorizacao().getNome());
+        // Permite que o próprio usuário edite seus dados. Valida permissões/hierarquia apenas para terceiros.
+        if (!entity.getEmail().equals(emailExecutor)) {
+            validarHierarquiaEdicao(roleExecutor, entity.getAutorizacao().getNome());
+        }
 
-        if (dadosAtualizados.getEmail() != null){
-            if(!dadosAtualizados.getEmail().equals(userEntityExistente.getEmail()) && userRepository.existsByEmail(dadosAtualizados.getEmail())){
+        if (dto.email() != null){
+            if(!dto.email().equals(entity.getEmail()) && userDAO.existsByEmail(dto.email())){
                 throw new BusinessException("Email já está em uso");
             }
-            userEntityExistente.setEmail(dadosAtualizados.getEmail());
+            entity.setEmail(dto.email());
         }
 
-        if (dadosAtualizados.getSenha() != null && !dadosAtualizados.getSenha().isBlank()){
-            userEntityExistente.setSenha(BcryptUtil.bcryptHash(dadosAtualizados.getSenha()));
+        if (dto.senha() != null && !dto.senha().isBlank()){
+            entity.setSenha(BcryptUtil.bcryptHash(dto.senha()));
         }
 
-        auditLogBO.registrar("ATUALIZAR_USUARIO", emailExecutor, "Usuário " + userEntityExistente.getEmail() + " atualizado", null);
+        auditLogBO.registrar("ATUALIZAR_USUARIO", emailExecutor, "Usuário " + entity.getEmail() + " atualizado", null);
 
-        return userEntityExistente;
+        return toDTO(entity);
     }
 
     @Transactional
     public void excluir(UUID id, String emailExecutor, Role roleExecutor){
-        UserEntity userEntity = userRepository.findByIdOptional(id)
+        UserEntity entity = userDAO.findById(id)
                 .orElseThrow(() -> new BusinessException("Usuário não encontrado"));
 
-        validarHierarquiaExclusao(roleExecutor, userEntity.getAutorizacao().getNome());
+        // Permite que o próprio usuário delete sua conta. Valida permissões/hierarquia apenas para terceiros.
+        if (!entity.getEmail().equals(emailExecutor)) {
+            validarHierarquiaExclusao(roleExecutor, entity.getAutorizacao().getNome());
+        }
 
-        auditLogBO.registrar("EXCLUIR_USUARIO", emailExecutor, "Usuário " + userEntity.getEmail() + " excluído", null);
+        auditLogBO.registrar("EXCLUIR_USUARIO", emailExecutor, "Usuário " + entity.getEmail() + " excluído", null);
 
-        userRepository.delete(userEntity);
+        userDAO.delete(entity);
     }
 
-    public UserEntity buscarPorId(UUID id) {
-        return userRepository.findByIdOptional(id)
-                .orElseThrow(() -> new BusinessException("Usuário não encontrado"));
+    public UserResponseDTO buscarPorId(UUID id) {
+        return toDTO(userDAO.findById(id)
+                .orElseThrow(() -> new BusinessException("Usuário não encontrado")));
     }
 
-    public UserEntity buscarPorEmail(String email) {
-        return userRepository.findByEmail(email)
-                .orElseThrow(() -> new BusinessException("Usuário não encontrado"));
+    public List<UserResponseDTO> listarTodos() {
+        return userDAO.listAll().stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 
-    public List<UserEntity> listarTodos() {
-        return userRepository.listAll();
+    public UserResponseDTO toDTO(UserEntity entity) {
+        return new UserResponseDTO(
+                entity.getId(),
+                entity.getEmail(),
+                entity.getAutorizacao().getNome()
+        );
     }
 }

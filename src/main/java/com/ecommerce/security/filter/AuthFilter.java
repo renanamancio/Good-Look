@@ -11,6 +11,10 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import java.io.IOException;
 
+/**
+ * Filtro JAX-RS responsável pela verificação de autenticação via JWT.
+ * Bloqueia o acesso a endpoints protegidos caso o token não esteja presente ou seja inválido.
+ */
 @Provider
 @Priority(Priorities.AUTHENTICATION)
 public class AuthFilter implements ContainerRequestFilter {
@@ -18,8 +22,15 @@ public class AuthFilter implements ContainerRequestFilter {
     @Inject
     JsonWebToken jwt;
 
+    /**
+     * Valida a presença do JWT em endpoints que não são públicos.
+     *
+     * @param requestContext Contexto da requisição.
+     * @throws IOException Erro de E/S.
+     */
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
+        // ... (resto do método)
         String path = requestContext.getUriInfo().getPath();
         String method = requestContext.getMethod();
 

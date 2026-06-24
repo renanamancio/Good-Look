@@ -8,10 +8,12 @@ import lombok.Setter;
 
 
 import com.github.f4b6a3.uuid.UuidCreator;
+
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "users")
+@Table(name = "tb_user")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,6 +22,9 @@ public class UserEntity {
     @Id
     @Column(columnDefinition = "UUID")
     private UUID id;
+
+    @Column(nullable = false)
+    private String nome;
 
     @Column(unique = true, nullable = false)
     private String email;
@@ -32,7 +37,10 @@ public class UserEntity {
     private RoleEntity autorizacao;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ClienteEntity clienteEntity;
+    private CarrinhoEntity carrinhoEntity;
+
+    @OneToMany(mappedBy = "user")
+    private List<PedidoEntity> pedidos;
 
     @PrePersist
     protected void onCreate() {

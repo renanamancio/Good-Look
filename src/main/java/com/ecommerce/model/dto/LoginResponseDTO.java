@@ -1,11 +1,11 @@
 package com.ecommerce.model.dto;
 
-import com.ecommerce.model.entity.Role;
-
+/**
+ * Resposta de login contendo o token JWT e os dados do usuário.
+ */
 public record LoginResponseDTO(
         String token,
-        String email,
-        Role autorizacao,
+        UserResponseDTO user,
         Long expiresIn
 ) {
 }
